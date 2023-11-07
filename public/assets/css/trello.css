@@ -1,0 +1,70 @@
+* {
+    border-radius: 10%;
+}
+.little {
+    font-size: 0.8rem;
+}
+div {
+    margin: 0.5rem;
+}
+.dashboard {
+    display: flex;
+    flex-direction: row;
+}
+.column {
+    width: 12vw;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    padding: 1rem;
+
+    background-color: rgb(219, 218, 218);
+}
+.task {
+    border: 2px solid grey;
+    padding: 0.5rem;
+    background-color: aliceblue;
+    position: relative;
+}
+.reset {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    font-size: 3rem;
+    padding: 1rem;
+}
+
+.reset button {
+    font-size: 3rem;
+    padding: 1rem;
+}
+.menu {
+    position: absolute;
+    border: 2px solid red;
+    display: none;
+    background-color: rgb(235, 235, 14);
+    top: -3rem;
+
+    z-index: 1;
+}
+.task:hover .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.task:hover .menu input {
+    border: none;
+    color: red;
+    margin: 1rem;
+}
+
+.task .menu::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: red transparent transparent transparent;
+}

@@ -1,0 +1,48 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="/assets/css/trello.css">
+{% endblock %}
+
+{% block content %}
+	<h1>Trello-Like, le futur Trello, mais en mieux
+		<span class='little'>
+			(ou pas...)</span>
+	</h1>
+	<div class='dashboard'>
+		{% for key,column in session.columns %}
+			<div class='column'>
+				<h2>column
+					{{key}}</h2>
+				<form method='post'>
+					<input type="text" name='task' id='task'>
+					<input type='submit' name='add{{key}}' value='+'>
+				</form>
+				{% for taskKey, colum in column %}
+					<div class='task'>
+						<h3>Tache</h3>
+						{{colum}}
+						<div class='menu'>
+							<form method='post'>
+								<input type='submit' name='suppr{{taskKey}}column{{key}}' value="supprimer">
+							</form>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		{% endfor %}
+
+		<div class='reset'>
+			<a href='reset'>
+				<button>Reset</button>
+			</a>
+		</div>
+
+		<div class='add'>
+			<form method='post'>
+				<input type='submit' name='columnAdd' value="ajouter une colonne">
+			</form>
+		</div>
+	</div>
+{% endblock %}
